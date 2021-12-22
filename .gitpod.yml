@@ -1,2 +1,2 @@
 tasks:
-  - init: npm i -g xslt3
+  - init: npm i -g xlst3 
