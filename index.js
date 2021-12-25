@@ -9,7 +9,9 @@ const   http = require('http'),
 const router = express();
 const server = http.createServer(router);
 
-router.get('/', function(req, res){
+router.use(express.static(path.resolve(__dirname,'views')));
+
+router.get('/get/html', function(req, res){
 
     res.writeHead(200, {'Content-type' : 'text/html'});
 
@@ -25,7 +27,7 @@ router.get('/', function(req, res){
 
 });
 
-server.listen(proccess.env.PORT || 3000, process.env.IP || "0.0.0.0", function()
+server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function()
 {
     const addr = server.address();
     console.log("Server listening at", addr.address + ":" + addr.port)
