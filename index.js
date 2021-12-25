@@ -13,13 +13,13 @@ router.get('/', function(req, res){
 
     res.writeHead(200, {'Content-type' : 'text/html'});
 
-    let xml = fs.readFileSync('DoubleXcycle.xml','utf8'),
-        xsl = fs.readFileSync('DoubleXcycle.xsl','utf8');
+    let xml = fs.readFileSync('DoubleXcycle.xml', 'utf8'),
+        xsl = fs.readFileSync('DoubleXcycle.xsl', 'utf8');
         
     let doc = xmlParse(xml),
         stylesheet = xmlParse(xsl);
             
-    let result = xslt.Process(doc, stylesheet);
+    let result = xsltProcess(doc, stylesheet);
 
     res.end(result.toString());
 
