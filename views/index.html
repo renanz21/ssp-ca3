@@ -10,6 +10,7 @@
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/DoubleXcycle.css" rel="stylesheet" />
         <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -33,11 +34,30 @@
         </nav>
         <!-- Page content-->
         <div class="container">
+            <div class="row">
             <div class="text-center mt-5">
+                <div class="text-center mt-5"></div>
                 <h1>Welcome to Double XX Cycle</h1>
                 <p class="lead">Check the available items below</p>
             </div>
-            <div id="results" class="col-lg-10 mb-3"></div>
+            <div id="menu" class="col-lg-6 mb-5 order-1">
+                <form enctype="application/json" action="/post/json" method="post">
+                    <div class="form-group">
+                        <select class="form-control" name="sec_n">
+                            <option value="0">Bikes</option>
+                            <option value="1">Accessories</option>
+                        </select>
+                        <input class="form-control mt-3" type="text" name="model" placeholder="Model">
+                        <input class="form-control mt-3" type="text" name="price" placeholder="Price">
+                        <div class="d-grid gap-2"><button type="submit" class="btn btn-primary btn-block mt-3">Submit</button></div>
+                    </div>
+                </form>
+                <div class="d-grid gap-2">
+                    <button id="delete" class="btn btn-danger btn-block mt-3">Delete</button></div>
+                    <p class="text-muted text-center">To delete an item, click the required row first</p>
+                </div>
+                <div id="results" class="col-lg-6 mb-3"></div>
+            </div>
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

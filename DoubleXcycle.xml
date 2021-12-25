@@ -1,23 +1,23 @@
-<?xml version = "1.0" enconding = "UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <store>
-    <section name="Bikes">
-        <item>
-            <model>GTX800</model>
-            <price>12000</price>
-        </item>
-        <item>
-            <model>XD1523</model>
-            <price>8000</price>
-        </item>
-    </section>
-    <section name="Acessories">
-        <item>
-            <model>Houstin Throtle</model>
-            <price>1000</price>
-        </item>
-        <item>
-            <model>Tintrea Handle</model>
-            <price>600</price>
-        </item>
-    </section>
+  <section name="Bikes">
+    <item>
+      <model>GTX800</model>
+      <price>12000</price>
+    </item>
+    <item>
+      <model>XD1523</model>
+      <price>8000</price>
+    </item>
+  </section>
+  <section name="Acessories">
+    <item>
+      <model>Houstin Throtle</model>
+      <price>1000</price>
+    </item>
+    <item>
+      <model>Tintrea Handle</model>
+      <price>600</price>
+    </item>
+  </section>
 </store>
