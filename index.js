@@ -1,22 +1,23 @@
-const   http = require('http'),
-        path = require('path'),
-        express = require('express'),
-        fs = require('fs'),
-        xmlParse = require('xslt-processor').xmlParse,
-        xsltProcess = require('xslt-processor').xsltProcess,
-        xml2js = require('xml2js');
+const   http = require('http'), //provides http servers functionalities
+        path = require('path'), // provides utilities to work with the file and directory paths
+        express = require('express'), //allows the app to respond http requests, defining routing and render back content
+        fs = require('fs'), //read and write files
+        xmlParse = require('xslt-processor').xmlParse, //allow use of xml files
+        xsltProcess = require('xslt-processor').xsltProcess, //allow use of xsl files
+        xml2js = require('xml2js'); //converts xml to json
 
 const router = express();
 const server = http.createServer(router);
 
-router.use(express.static(path.resolve(__dirname,'views')));
-router.use(express.urlencoded({extended: true}));
-router.use(express.json());
+router.use(express.static(path.resolve(__dirname,'views'))); //set ''views'' folder public
+router.use(express.urlencoded({extended: true})); //data sent from client can be encoded in applications end point
+router.use(express.json()); //applies json support
 
 /*!
  * Function copied from Lecturer Mikhail on github: https://github.com/mikhail-cct/ssp-practical/blob/main/index.js
  */
 
+// Function to read in XML file and convert it to JSON
 function XMLtoJSON(filename, cb) {
     var filepath = path.normalize(path.join(__dirname, filename));
     fs.readFile(filepath, 'utf8', function(err, xmlStr) {
@@ -29,6 +30,7 @@ function XMLtoJSON(filename, cb) {
  * Function copied from Lecturer Mikhail on github: https://github.com/mikhail-cct/ssp-practical/blob/main/index.js
  */
 
+//Function to convert JSON to XML and save it
 function JSONtoXML(filename, obj, cb) {
     var filepath = path.normalize(path.join(__dirname, filename));
     var builder = new xml2js.Builder();
@@ -36,6 +38,8 @@ function JSONtoXML(filename, obj, cb) {
     fs.unlinkSync(filepath);
     fs.writeFile(filepath, xml, cb);
 };
+
+//take xml and xsl files to a variable and use toString method to print the information
 
 router.get('/get/html', function(req, res){
 
